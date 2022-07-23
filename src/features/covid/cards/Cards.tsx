@@ -4,14 +4,14 @@ import Countup from "react-countup";
 import { useSelector } from "react-redux";
 import { selectDaily } from "../covidSlice";
 import { Grid, CardContent, Typography, Card } from "@mui/material";
-import "./Cards.moudule.css";
+import styles from "./Cards.module.css";
 
 export const Cards: FC = () => {
   const daily = useSelector(selectDaily);
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Grid container spacing={1} justifyContent="center">
-        <Grid item xs={12} md={3} component={Card} className="infected">
+        <Grid item xs={12} md={3} component={Card} className={styles.infected}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               <MdLocalHospital>Infected persons</MdLocalHospital>
@@ -26,7 +26,7 @@ export const Cards: FC = () => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item xs={12} md={3} component={Card} className="recovered">
+        <Grid item xs={12} md={3} component={Card} className={styles.recovered}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               <MdLocalHospital>Recovered persons</MdLocalHospital>
@@ -41,7 +41,7 @@ export const Cards: FC = () => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item xs={12} md={3} component={Card} className="recovered">
+        <Grid item xs={12} md={3} component={Card} className={styles.deaths}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               <MdLocalHospital>Dead persons</MdLocalHospital>
