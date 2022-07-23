@@ -1,11 +1,31 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
 import { selectDaily } from "../covidSlice";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Line } from "react-chartjs-2";
-import "./Chart.module.css";
+import styles from "./Chart.module.css";
+import { useAppSelector } from "../../../app/hooks";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export const Chart: FC = () => {
-  const daily = useSelector(selectDaily);
+  const daily = useAppSelector(selectDaily);
   const dates = daily.map(({ Date }) => Date);
 
   const lineChart = daily[0] && (
@@ -36,5 +56,5 @@ export const Chart: FC = () => {
       }}
     />
   );
-  return <div className="container">{lineChart}</div>;
+  return <div className={styles.container}>{lineChart}</div>;
 };

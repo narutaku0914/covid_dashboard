@@ -1,11 +1,14 @@
 import { FC } from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { Typography } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../app/hooks";
 import { selectDaily } from "../covidSlice";
 
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 export const PieChart: FC = () => {
-  const daily = useSelector(selectDaily);
+  const daily = useAppSelector(selectDaily);
 
   const motality =
     (100 * daily[daily.length - 1].Deaths) / daily[daily.length - 1].Confirmed;
@@ -47,6 +50,7 @@ export const PieChart: FC = () => {
     <>
       <Typography align="center" color="textSecondary" gutterBottom>
         Motarity {motality.toFixed(2)} [%]
+        {PieChart}
       </Typography>
     </>
   );

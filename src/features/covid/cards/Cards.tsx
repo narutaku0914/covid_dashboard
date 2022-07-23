@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { MdLocalHospital } from "react-icons/md";
 import Countup from "react-countup";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../app/hooks";
 import { selectDaily } from "../covidSlice";
 import { Grid, CardContent, Typography, Card } from "@mui/material";
 import styles from "./Cards.module.css";
 
 export const Cards: FC = () => {
-  const daily = useSelector(selectDaily);
+  const daily = useAppSelector(selectDaily);
   return (
     <div className={styles.container}>
       <Grid container spacing={1} justifyContent="center">

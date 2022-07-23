@@ -1,8 +1,9 @@
 import { ChangeEvent, FC } from "react";
 import { styled } from "@mui/material/styles";
 import { FormControl, NativeSelect } from "@mui/material";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { fetchAsyncGetDaily } from "../covidSlice";
+import { useAppDispatch } from "../../../app/hooks";
 
 const CustomFormControl = styled(FormControl)`
   marginbottom: theme.spacing(3);
@@ -10,7 +11,7 @@ const CustomFormControl = styled(FormControl)`
 `;
 
 export const SwitchCountry: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const countries = ["Japan", "China", "Us", "France"];
   return (
