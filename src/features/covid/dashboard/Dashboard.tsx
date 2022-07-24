@@ -26,9 +26,11 @@ export const Dashboard: FC = () => {
 
   return (
     <>
-      <AppBar position="absolute">
+      <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6">COVID-19 Live Dashboard</Typography>
+          <Typography variant="h6" className={styles.title}>
+            COVID-19 Live Dashboard
+          </Typography>
           <div>
             <Typography variant="body1">
               {new Date(daily[daily.length - 1].Date).toDateString()}
@@ -36,7 +38,7 @@ export const Dashboard: FC = () => {
           </div>
         </Toolbar>
       </AppBar>
-      <Container>
+      <Container className={styles.content}>
         <div className={styles.container}>
           <SwitchCountry />
         </div>

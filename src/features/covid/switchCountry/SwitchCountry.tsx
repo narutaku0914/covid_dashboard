@@ -1,12 +1,11 @@
 import { ChangeEvent, FC } from "react";
 import { styled } from "@mui/material/styles";
 import { FormControl, NativeSelect } from "@mui/material";
-// import { useDispatch } from "react-redux";
 import { fetchAsyncGetDaily } from "../covidSlice";
 import { useAppDispatch } from "../../../app/hooks";
 
 const CustomFormControl = styled(FormControl)`
-  marginbottom: theme.spacing(3);
+  marginbottom: spacing(3);
   minwidth: 320;
 `;
 
