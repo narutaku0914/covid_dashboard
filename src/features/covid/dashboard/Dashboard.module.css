@@ -1,3 +1,11 @@
+.title {
+  flex-grow: 1;
+}
+
+.content {
+  margin-top: 85;
+}
+
 .container {
   display: flex;
   align-items: center;
